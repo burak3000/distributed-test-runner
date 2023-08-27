@@ -24,3 +24,10 @@ The system must be scalable in order to hande large number of tests.
 ### Performance
 
 The system must be able to show the updates in real-time.
+
+## Stakeholders
+
+| Title         | Description                                                                               |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| TestRequester | A generic role that can request a test run. It can be a developer, tester, architect etc. |
+| TestTracker   | A generic role that can view the requested test(s)                                        |
