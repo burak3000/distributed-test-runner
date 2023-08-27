@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Box, Button, TextField, Typography } from '@mui/material'
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import AppRegistrationOutlinedIcon from '@mui/icons-material/AppRegistrationOutlined';
-import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
+import { useForm } from "react-hook-form"
+import axiosInstance from './api/axios';
+import axios from 'axios';
 
-const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+const API_ENDPOINT = "/auth/register-user";
+
+const SignUp = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const password = useRef({});
+    password.current = watch("password", "");
+
     return (
-        <form onSubmit={handleSubmit((data) => {
+        <form onSubmit={handleSubmit(async (data) => {
             //send a post request to the backend here...
+            await axios.post('http://localhost:5050/auth/sign-up', data).then(response=>console.log(response));
         })}>
             <Box
                 maxWidth={"50%"}
@@ -23,7 +30,7 @@ const Login = () => {
                 borderRadius={5}
                 boxShadow={'5px 5px 10px #ccc'}
             >
-                <Typography variant='h4' padding={3}>Login</Typography>
+                <Typography variant='h4' padding={3}>Sign Up</Typography>
                 <TextField
                     error={Boolean(errors?.email)}
                     helperText={Boolean(errors?.email) ? <Typography>Invalid Email</Typography> : null}
@@ -42,17 +49,27 @@ const Login = () => {
                     {...register("password", { minLength: 6, required: true })}
                     label="Password"
                 />
+                <TextField
+                    error={Boolean(errors?.repeatedPassword)}
+                    helperText={Boolean(errors?.repeatedPassword) ? "Passwords do not match" : null}
+                    margin="normal"
+                    variant='outlined'
+                    type="password"
+                    {...register("repeatedPassword", { minLength: 6, required: true, validate: (rep) => rep === password.current || "The passwords do not match" })}
+                    label="Repeat Password"
+                />
+
                 <Button
                     disabled={Boolean(errors.email) || Boolean(errors.password)}
-                    endIcon={<LoginOutlinedIcon />}
+                    endIcon={<AppRegistrationOutlinedIcon />}
                     type="submit"
                     sx={{ marginTop: 3, borderRadius: 3, marginBottom: 3 }}
                     variant='contained'
-                    color='warning'>Login</Button>
-                <Link to="/sign-up">Sign Up</Link>
+                    color='warning'>Sign Up</Button>
+                <Link style={{ margin: 3 }} to="/login">Login</Link>
             </Box>
         </form>
     )
 }
 
-export default Login
+export default SignUp
