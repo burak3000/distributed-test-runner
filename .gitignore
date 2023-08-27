@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/distributed-test-runner-frontend/node_modules/
+/distributed-test-runner-frontend//.pnp
+/distributed-test-runner-frontend/.pnp.js
+
+# testing
+/coverage
+
+# production
+/distributed-test-runner-frontend/build
+
+# misc
+.DS_Store
+/distributed-test-runner-frontend/.env.local
+/distributed-test-runner-frontend/.env.development.local
+/distributed-test-runner-frontend/.env.test.local
+/distributed-test-runner-frontend/.env.production.local
+
+/distributed-test-runner-frontend/npm-debug.log*
+/distributed-test-runner-frontend/yarn-debug.log*
+/distributed-test-runner-frontend/yarn-error.log*
