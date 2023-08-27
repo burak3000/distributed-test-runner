@@ -55,4 +55,4 @@ Since this is an open source project, open source constraints apply here...
 
 ## Business Context
 
-![Business Context](/pumls/3_3_1_BusinessContext.png)
+![Business Context](/pumls/3/_3_1_BusinessContext.png)
