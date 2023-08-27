@@ -56,3 +56,7 @@ Since this is an open source project, open source constraints apply here...
 ## Business Context
 
 ![Business Context](pumls/3/_3_1_BusinessContext.png)
+
+## Technical Context
+
+![Technical Context](pumls/3/_3_2_TechnicalContext.png)

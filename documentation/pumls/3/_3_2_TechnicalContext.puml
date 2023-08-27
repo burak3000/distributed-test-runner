@@ -1,0 +1,11 @@
+@startuml
+Actor TestRequester
+Actor TestTracker
+component DistributedTestRunner #Red
+component MailServer
+TestRequester -->DistributedTestRunner: HTTP
+DistributedTestRunner --> TestTracker: Server Sent Events
+DistributedTestRunner --> MailServer: SMTP
+MailServer -->TestRequester: SMTP
+MailServer -->TestTracker: SMTP
+@enduml
