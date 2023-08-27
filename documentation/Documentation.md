@@ -25,6 +25,10 @@ The system must be scalable in order to hande large number of tests.
 
 The system must be able to show the updates in real-time.
 
+### Extensibilty
+
+It must be easy to integrate new test-running-strategies to the system.
+
 ## Stakeholders
 
 | Title         | Description                                                                               |
@@ -33,13 +37,22 @@ The system must be able to show the updates in real-time.
 | TestTracker   | A generic role that can view the requested test(s)                                        |
 
 # Constraints
+
 ## Technical Constraints
+
 | Id   | Constraint         | Description                                                                                                                                                                                         |
-|------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | TC01 | frontend framework | There are too much ways to represent the application. Even though it is not a framework, React library will be used to represent the frontend application. It will use MUI as its component library |
 | TC02 | backend framework  | ASP.NET(.NET 7) is used to handle the requests                                                                                                                                                      |
 | TC03 | communication      | MassTransit with RabbitMQ is used                                                                                                                                                                   |
 | TC04 | containerization   | All the components/services must be containerized                                                                                                                                                   |
 
 ## Organizational Constraints
+
 Since this is an open source project, open source constraints apply here...
+
+# Scope and Context
+
+## Business Context
+
+![Business Context](/pumls/3_3_1_BusinessContext.png)
