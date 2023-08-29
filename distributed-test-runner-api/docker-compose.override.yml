@@ -1,0 +1,41 @@
+version: '3.4'
+
+services:
+  dtr.db:
+    container_name: dtr.db
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=dtr.db
+    ports:
+      - "5432:5432" 
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 30000:80
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+  rabbitmq:
+    container_name: rabbitmq
+    image: masstransit/rabbitmq:3.9
+    networks:
+      - local-dev-net
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 4369:4369
+      - 5671:5671
+    volumes:
+      - rabbitmq_data:/var/log/rabbitmq
+networks:
+  local-dev-net:
+    driver: bridge
+    

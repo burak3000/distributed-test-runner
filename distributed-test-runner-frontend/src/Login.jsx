@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Box, Button, Link, TextField, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography } from '@mui/material'
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import AppRegistrationOutlinedIcon from '@mui/icons-material/AppRegistrationOutlined';
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,7 +23,7 @@ const Login = () => {
                 borderRadius={5}
                 boxShadow={'5px 5px 10px #ccc'}
             >
-                <Typography variant='h4' padding={3}>{"Login"}</Typography>
+                <Typography variant='h4' padding={3}>Login</Typography>
                 <TextField
                     error={Boolean(errors?.email)}
                     helperText={Boolean(errors?.email) ? <Typography>Invalid Email</Typography> : null}
@@ -45,10 +46,10 @@ const Login = () => {
                     disabled={Boolean(errors.email) || Boolean(errors.password)}
                     endIcon={<LoginOutlinedIcon />}
                     type="submit"
-                    sx={{ marginTop: 3, borderRadius: 3 }}
+                    sx={{ marginTop: 3, borderRadius: 3, marginBottom: 3 }}
                     variant='contained'
                     color='warning'>Login</Button>
-                <Link sx={{ marginTop: 3, borderRadius: 3 }} href="/sign-up">Sign Up</Link>
+                <Link to="/sign-up">Sign Up</Link>
             </Box>
         </form>
     )

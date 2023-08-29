@@ -1,0 +1,44 @@
+@startuml
+Actor TestRequester as requester
+Actor TestTracker as tt
+component DistributedTestRunner #Red{
+    component FrontendApp as fe
+    component WebApi as api
+    component TestOrchestrator as torch
+    component JobExtractionService as jgs
+    component TestRunnerScalingService as trss
+    component TestRunner as tr
+    component DependencyDeploymentService as dds
+    queue MassTransit_RabbitMQ as mt
+    component MailService as ms
+}
+component MailServer
+
+requester --> fe: TestAssembly
+fe --> api: HttpPostTestRequest
+api --> mt: TestRequested
+mt --> torch: TestRequested
+torch -->mt:JobGenerationRequested
+mt-->jgs:JobGenerationRequested
+jgs-->mt:JobsGenerated
+torch-->mt:ScalingRequested
+mt-->trss:ScalingRequested
+trss-->mt:ScalingCompleted
+trss-->tr: StartRunner
+tr-->trss:RunnerStarted
+tr-->mt:SubscribeToJobQueue
+tr-->mt:TestDependencyRequested
+mt-->dds:TestDependencyRequested
+dds-->mt:TesteDependencyDeployed
+mt-->tr:TesteDependencyDeployed
+tr-->mt:TestUpdated
+mt-->api:TestUpdated
+api-->fe:TestUpdatedServerSentEvent
+fe-->tt:Up-to-date test pages
+torch-->mt:TestRequestCompleted
+mt-->ms:TestRequestCompleted
+mt-->MailServer:SendTestMail
+MailServer-->tt:TestMail
+
+
+@enduml
