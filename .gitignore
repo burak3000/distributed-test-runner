@@ -386,3 +386,4 @@ MigrationBackup/
 FodyWeavers.xsd
 distributed-test-runner-api/DistributedTestRunnerApi/bin*
 distributed-test-runner-api/DistributedTestRunnerApi/obj*
+.vscode/*
