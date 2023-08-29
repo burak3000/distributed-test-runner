@@ -60,3 +60,17 @@ Since this is an open source project, open source constraints apply here...
 ## Technical Context
 
 ![Technical Context](pumls/3/_3_2_TechnicalContext.png)
+
+# Solution Strategy
+
+It can be very time consuming to run integration/system tests if you have hundreds of test cases because of their nauture. We can reduce this time to schedule them to several test runners. First we need to identify a test case from a test assembly. Then we need to deploy test dependencies to the related test runner. Then we are ready to run a test case inside the runner. After a test case is finished we can publish its results.
+
+This products implemented using web technologies and microservices architecture. Since this is a POC app, everything will be working on a local machine but it will be easy to merge your custom logics into the app via Dependency Injection. Most of the strategies(like scaling stragy, dependency deployment strategy etc.) will be configurable from config files.
+
+Currently the system will get the test assembly, extract NUnit test cases and create a Job Data Transfer Object(DTO) for each test case. It will boot up some test runner instances that will listen a certain JobDto queue. After all jobs are created, they will be enqueued into the queue and the runners will run the tests as competing-consumers manner.
+
+Test/Job updates will be published via messaging queueing system and these updates will be visible on frontend app via server sent events.
+
+# Building Block View
+
+![Components](pumls/5/_5_1_HighLevelComponents.png)
