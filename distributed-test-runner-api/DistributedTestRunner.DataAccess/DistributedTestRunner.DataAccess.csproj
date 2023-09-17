@@ -10,4 +10,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DistributedTestRunner.Core\DistributedTestRunner.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="EntityConfigurations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EntityConfigurations\" />
+  </ItemGroup>
 </Project>

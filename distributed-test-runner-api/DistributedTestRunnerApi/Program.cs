@@ -1,6 +1,5 @@
 using DistributedTestRunner.CompositionRoot;
 using Microsoft.AspNetCore.Authorization;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
-builder.Services.AddDtrDbContext();
+builder.Services.AddDtrDbContext(builder.Configuration);
 builder.Services.AddIdentity();
 builder.Services.AddAuthorization(options =>
 {
