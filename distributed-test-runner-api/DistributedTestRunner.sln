@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedTestRunner.DataA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedTestRunner.CompositionRoot", "DistributedTestRunner.CompositionRoot\DistributedTestRunner.CompositionRoot.csproj", "{D90F9171-61BF-4F26-9638-E6FC0B84FAC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedTestRunner.Core", "DistributedTestRunner.Core\DistributedTestRunner.Core.csproj", "{6191270B-7B1A-4FFF-80A2-68FDD46B4C59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributeTestRunner.Tests", "DistributeTestRunner.Tests\DistributeTestRunner.Tests.csproj", "{433A5EB2-DC09-4DBC-8816-C1C5C34392D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{D90F9171-61BF-4F26-9638-E6FC0B84FAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D90F9171-61BF-4F26-9638-E6FC0B84FAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D90F9171-61BF-4F26-9638-E6FC0B84FAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6191270B-7B1A-4FFF-80A2-68FDD46B4C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6191270B-7B1A-4FFF-80A2-68FDD46B4C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6191270B-7B1A-4FFF-80A2-68FDD46B4C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6191270B-7B1A-4FFF-80A2-68FDD46B4C59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{433A5EB2-DC09-4DBC-8816-C1C5C34392D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433A5EB2-DC09-4DBC-8816-C1C5C34392D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{433A5EB2-DC09-4DBC-8816-C1C5C34392D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433A5EB2-DC09-4DBC-8816-C1C5C34392D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
